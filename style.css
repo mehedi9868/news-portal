@@ -3,3 +3,7 @@
     background-color: darkgrey;
     transition: 0.8s;
 }
+
+#displayNews {
+    width: 50%;
+}
