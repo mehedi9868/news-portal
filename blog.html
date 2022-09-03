@@ -6,10 +6,103 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <!-- icon -->
+    <link rel="shortcut icon" href="img/shortcut-icon.png" type="image/x-icon">
+    <!-- bootstrap css cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font aweosome -->
+    <script src="https://kit.fontawesome.com/a6737f02bf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- menu bar section start -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <!-- brand image -->
+            <a class="navbar-brand" href="index.html">
+                <img src="img/brand-logo.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
+            </a>
+            <a class="navbar-brand" href="index.html">PAGE NAME</a>
+            <!-- for mobile three line menu button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- author image -->
+            <a class="navbar-brand" href="index.html">
+                <img src="img/author.jpg" alt="" width="50" height="50" class="rounded-circle">
+            </a>
+        </div>
+    </nav>
+    <hr>
+    <!-- menu bar section end -->
+
+    <div class="container">
+        <!-- question and ans 01 -->
+        <div class="card my-3">
+            <div class="card-header">
+                Topic - 01
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Difference between var, let and const:</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-light">Read more</a>
+            </div>
+        </div>
+
+        <!-- question and ans 02 -->
+        <div class="card my-3">
+            <div class="card-header">
+                Topic - 02
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Regular Vs Arrow function</h5>
+                <p class="card-text">Regular functions created using function declarations or expressions are
+                    constructible and callable. Since regular functions are constructible, they can be called using the
+                    new keyword. However, the arrow functions are only callable and not constructible, i.e arrow
+                    functions can never be used as constructor functions.</p>
+                <a href="#" class="btn btn-light">Read more</a>
+            </div>
+        </div>
+
+        <!-- question and ans 03 -->
+        <div class="card my-3">
+            <div class="card-header">
+                Topic - 03
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Map, forEach, Filter, Find</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-light">Read more</a>
+            </div>
+        </div>
+
+        <!-- question and ans 04 -->
+        <div class="card my-3">
+            <div class="card-header">
+                Topic - 04
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Template String Benifits</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-light">Read more</a>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 </html>
