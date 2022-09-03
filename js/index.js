@@ -19,7 +19,7 @@ const setCategory = async () => {
         const li = document.createElement('li');
         li.classList.add('nav-item');
         li.innerHTML = `
-            <button id = "${categoryId}" onclick = "loadNews('${category.category_id}')">${categoryName}</button>
+            <button id = "category-btn" onclick = "loadNews('${category.category_id}')">${categoryName}</button>
         `
         ul.appendChild(li);
     }
@@ -28,7 +28,7 @@ const setCategory = async () => {
 setCategory();
 
 
-const loadNews = (id) => {
+const loadNews = (id = '03') => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
         .then(data => displayCard(data.data));
@@ -60,7 +60,9 @@ const displayCard = news => {
                         <span>${element.author.name}</span>
                     </div>
                     <p class="card-text">${element.total_view}</p>
-                    <button>SEE MORE</button>
+                    <button onclick = "${displayModal()}" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        SEE MORE
+                    </button>
                 </div>
             </div>
         </div>
@@ -71,3 +73,18 @@ const displayCard = news => {
 
 }
 loadNews();
+
+
+// for modal
+
+const displayModal = modals => {
+    const modal = document.getElementById('modal');
+        modal.innerHTML = `
+            <div class="modal-body">
+                <img src="">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>`
+};

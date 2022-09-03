@@ -2,10 +2,15 @@ body {
     background-color: lightgray;
 }
 
+#category-btn {
+    padding: 5px 10px;
+    border: 1px solid grey;
+}
+
 #category-btn:hover {
     color: white;
     background-color: darkgrey;
-    transition: 0.8s;
+    transition: 0.5s;
 }
 
 .row {
@@ -13,3 +18,5 @@ body {
     padding: 20px;
     border-radius: 10px;
 }
+
+.card-text {}
