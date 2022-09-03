@@ -13,7 +13,7 @@ const setCategory = async () => {
         const categoryName = category.category_name;
         const li = document.createElement('li');
         li.classList.add('nav-item');
-        li.innerHTML = `<button class="bg-body border px-3 py-2 my-5" onclick = "dynamicDetails('${category.category_id}')">${categoryName}</button>`;
+        li.innerHTML = `<button id ="category-btn"class=" border px-3 py-2 my-5" onclick = "dynamicDetails('${category.category_id}')">${categoryName}</button>`;
         ul.appendChild(li);
     }
 }

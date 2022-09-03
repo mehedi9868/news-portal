@@ -1,0 +1,5 @@
+#category-btn:hover {
+    color: white;
+    background-color: darkgrey;
+    transition: 0.8s;
+}
