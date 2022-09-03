@@ -2,11 +2,11 @@
 // const loadAllData = async () => {
 //     const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
 //     const data = await response.json();
-//     // console.log(data)
+//     console.log(data)
 //     return data;
 // }
 
-// loadAllData(data);//
+// loadAllData();//
 // console.log(data)
 // const setCategory = async () => {
 //     const data = await loadAllData();
@@ -51,36 +51,55 @@
 // }
 // displayNews();
 
+
+const loadNews = () => {
+    fetch('https://openapi.programming-hero.com/api/news/category/01')
+        .then(res => res.json())
+        .then(data => displayCard(data.data));
+}
+
 const displayCard = news => {
 
     const container = document.getElementById('displayNews');
-    const div = document.createElement('div');
-    div.classList.add("card,mb-3");
-    div.innerHTML = `
+    container.innerHTML = ``;
+    news.forEach(element => {
+        console.log(element)
+        const div = document.createElement('div');
+        div.classList.add("card,m-0");
+        div.innerHTML = `
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="img/author.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="${element.thumbnail_url}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">
-            <div class="card-body p-4 position-relative">
+            <div class="card-body">
                 <div class = "mb-5">
-                    <h5 class="card-title">Amar Name</h5>
-                    <p class="card-text text-truncate">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a wider card with </p>
+                    <h5 class="card-title">${element.title}</h5>
+                    <p class="card-text">${element.details}</p>
                 </div>
 
                 <div class = "d-flex justify-content-between align-items-baseline">
                     <div>
-                        <img src="img/author.jpg" class="img-fluid rounded-circle " alt="..." width = "50px">
-                        <span>author name</span>
+                        <img src="${element.author.img}" class="img-fluid rounded-circle " alt="..." width = "50px">
+                        <span>${element.author.name}</span>
                     </div>
-                    <p class="card-text">view</p>
+                    <p class="card-text">${element.total_view}</p>
                     <button>SEE MORE</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div> <br>
     `
-    container.appendChild(div);
+        container.appendChild(div);
+    });
+
 }
 
-displayCard();
+// displayCard();
+
+// const loadNews = () => {
+//     fetch('https://openapi.programming-hero.com/api/news/category/01')
+//         .then(res => res.json())
+//         .then(json => console.log(json.data.title))
+// }
+loadNews();
