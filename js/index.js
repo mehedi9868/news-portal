@@ -6,33 +6,34 @@ const loadAllData = async () => {
 
 // loadAllData();
 
-
+let categoryId = 0;
 const setCategory = async () => {
     const data = await loadAllData();
     const allCategories = data.data.news_category;
     const ul = document.getElementById('categories');
     for (const category of allCategories) {
         const categoryName = category.category_name;
-        const categoryId = category.category_id;
+        categoryId = category.category_id;
         // console.log(categoryName);
         // console.log(categoryId);
         const li = document.createElement('li');
         li.classList.add('nav-item');
         li.innerHTML = `
-            <button id = "${categoryId}">${categoryName}</button>
+            <button id = "${categoryId}" onclick = "loadNews('${category.category_id}')">${categoryName}</button>
         `
         ul.appendChild(li);
     }
+
 }
 setCategory();
 
 
-
-const loadNews = (dynamicUrl) => {
-    fetch(`https://openapi.programming-hero.com/api/news/category/${dynamicUrl}`)
+const loadNews = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
         .then(data => displayCard(data.data));
 }
+
 
 const displayCard = news => {
 
