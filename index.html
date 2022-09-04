@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/a6737f02bf.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="container">
+<body class="container-fluid">
     <!-- menu bar section start -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
@@ -50,12 +50,21 @@
     <hr>
     <!-- menu bar section end -->
 
-    <header>
+
+    <header class="container">
         <ul id="categories" class="nav justify-content-around">
             <!-- add li dynamically -->
         </ul>
     </header> <br>
-    <main>
+
+    <!-- data found and not found msg -->
+    <div>
+        <h3 id="error-msg" class="text-center bg-white py-3"></h3><br>
+    </div>
+
+
+
+    <main class="container">
         <section id="displayNews">
 
         </section>
@@ -75,7 +84,7 @@
     <!-- modal end -->
 
     <!-- footer sectiion start-->
-    <section width="100%" class="sticky-bottom  text-center">
+    <section width="100%" class="sticky-bottom  text-center container-fluid">
         <div class="bg-light mt-5 py-3">
             <span class="fs-5"> &COPY; Copyright 2022</span>
         </div>

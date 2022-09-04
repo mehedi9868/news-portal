@@ -1,7 +1,13 @@
 const loadAllData = async () => {
-    const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
-    const data = await response.json();
-    return data;
+
+    try {
+        const response = await fetch('https://openapi.programming-hero.com/api/news/categories');
+        const data = await response.json();
+        return data;
+    }
+    catch (error) {
+        console.log(error);  // Error handler for bonus
+    }
 }
 
 // loadAllData();
@@ -9,17 +15,15 @@ const loadAllData = async () => {
 let categoryId = 0;
 const setCategory = async () => {
     const data = await loadAllData();
-    const allCategories = data.data.news_category;
+    const allCategories = data.data?.news_category; // optional chaining for bonus
     const ul = document.getElementById('categories');
     for (const category of allCategories) {
         const categoryName = category.category_name;
-        categoryId = category.category_id;
-        // console.log(categoryName);
-        // console.log(categoryId);
+        const categoryId = category.category_id;
         const li = document.createElement('li');
         li.classList.add('nav-item');
         li.innerHTML = `
-            <button id = "category-btn" onclick = "loadNews('${category.category_id}')">${categoryName}</button>
+            <button id = "category-btn" onclick = "loadNews('${categoryId}')">${categoryName}</button>
         `
         ul.appendChild(li);
     }
@@ -31,11 +35,21 @@ setCategory();
 const loadNews = (id = '03') => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
-        .then(data => displayCard(data.data));
+        .then(data => displayCard(data.data))
+        .catch(error => console.log(error)); // Error handler for bonus
 }
 
-
 const displayCard = news => {
+    // console.log(news.length)
+
+    // ---- For News Found or Not Message With Number---  // bonus part
+    if (news.length == 0) {
+        const errMsgElement = document.getElementById('error-msg');
+        errMsgElement.innerText = ("SORRY ! NO NEWS FOUND...");
+    } else {
+        const errMsgElement = document.getElementById('error-msg');
+        errMsgElement.innerText = (`YES ! ${news.length} NEWS FOUND... `);
+    }
 
     const container = document.getElementById('displayNews');
     container.innerHTML = ``;
@@ -68,7 +82,10 @@ const displayCard = news => {
         </div>
     </div> <br>
     `
+
+
         container.appendChild(div);
+
     });
 
 }
@@ -79,7 +96,7 @@ loadNews();
 
 const displayModal = modals => {
     const modal = document.getElementById('modal');
-        modal.innerHTML = `
+    modal.innerHTML = `
             <div class="modal-body">
                 <img src="">
                 <p></p>
