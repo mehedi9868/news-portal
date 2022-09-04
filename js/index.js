@@ -26,6 +26,7 @@ const setCategory = async () => {
             <button id = "category-btn" onclick = "loadNews('${categoryId}')">${categoryName}</button>
         `
         ul.appendChild(li);
+
     }
 
 }
@@ -65,7 +66,7 @@ const displayCard = news => {
             <div class="card-body">
                 <div class = "mb-5">
                     <h5 class="card-title">${element.title}</h5>
-                    <p class="card-text">${element.details}</p>
+                    <p class="card-text">${element.details.slice(0, 300)}</p>
                 </div>
 
                 <div class = "d-flex justify-content-between align-items-baseline">
@@ -99,7 +100,7 @@ const displayModal = modals => {
     modal.innerHTML = `
             <div class="modal-body">
                 <img src="">
-                <p></p>
+                <p>SORRY! CAN'T MAKE IT DYNAMIC</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
